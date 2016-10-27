@@ -39,21 +39,21 @@ $cakeDescription = 'Combattant-ECE';
         <a href="diary">Le journal</a>
         <a href="sight">Vision</a>
         <a href="fighter">Mon combattant</a>
+        <a href="index">Deconnexion</a>
         <form action ="recherche.html" method="post" >               
             <input name ="search" type="text" placeholder="Rechercher un utilisateur"/>
-            <input  name="submit" type="submit" value="Rechercher">    
+            <input name="submit" type="submit" value="Rechercher">    
         </form>
-        <a href="index">Deconnexion</a>
+
     </header>
 
     <?= $this->Flash->render() ?>
-
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
         
     <footer>
-        © Gr2-09-CG - Alexia CHASSIGNEUX, Romain TICHADOU, Perpetua NESARAJAH, Matthieu Hannequin - Novembre 2016
+        © Gr2-09-CG - Alexia Chassigneux, Romain Tichadou, Perpetua Nesarajah, Matthieu Hannequin - Novembre 2016
     </footer>
 </body>
 </html>
