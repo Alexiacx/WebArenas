@@ -51,7 +51,22 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
+
+    <img class="img_fond" src="boutons/background_vision.png" alt="background"/>
+    <header>
+        <a href="index.ctp">Deconnexion</a>
+        <a href="help.ctp">Les règles</a>
+        <a href="diary.ctp">Le journal</a>
+        <a href="fighter.ctp">Mon combattant</a>
+    </header>
+
+        <form action ="recherche.html" method="post" >               
+            <input name ="search" type="text" placeholder="Rechercher un utilisateur"/>
+            <input  name="submit" type="submit" value="Rechercher">    
+        </form>
+
     <footer>
+        © Alexia CHASSIGNEUX, Romain TICHADOU, Perpetua NESARAJAH, Matthieu Hannequin - Novembre 2016
     </footer>
 </body>
 </html>
