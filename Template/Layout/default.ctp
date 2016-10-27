@@ -28,45 +28,39 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('login.css') ?>
+    <?= $this->Html->css('index.css') ?>
+    <?= $this->Html->css('fighter.css') ?>
+    <?= $this->Html->css('sight.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+    <title> 
+      Combattant-ECE
+    </title>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-
-    <img class="img_fond" src="boutons/background_vision.png" alt="background"/>
     <header>
         <a href="index.ctp">Deconnexion</a>
         <a href="help.ctp">Les règles</a>
         <a href="diary.ctp">Le journal</a>
         <a href="fighter.ctp">Mon combattant</a>
     </header>
-
-        <form action ="recherche.html" method="post" >               
+    <form action ="recherche.html" method="post" >               
             <input name ="search" type="text" placeholder="Rechercher un utilisateur"/>
             <input  name="submit" type="submit" value="Rechercher">    
         </form>
 
+    <?= $this->Flash->render() ?>
+
+    <div class="container clearfix">
+        <?= $this->fetch('content') ?>
+    </div>
+        
     <footer>
-        © Alexia CHASSIGNEUX, Romain TICHADOU, Perpetua NESARAJAH, Matthieu Hannequin - Novembre 2016
+        © Gr2-09-CG - Alexia CHASSIGNEUX, Romain TICHADOU, Perpetua NESARAJAH, Matthieu Hannequin - Novembre 2016
     </footer>
 </body>
 </html>
