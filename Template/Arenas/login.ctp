@@ -1,13 +1,11 @@
-<?php $this->assign('title', 'login');?>
+<?php $this->assign('title', 'Inscription');?>
 
-    <a href="accueil.html"> <img id="img_prev" src="boutons/retour.png"/></a> 
-    
     <h1>LES COMBATTANTS - E C E</h1>
     
     <fieldset id="information">
     <legend>Informations  personnelles</legend>
 
-    <form action="vision.html" method="post">
+    <form action="sight" method="post">
     <table>
         <tr>
             <td><label for="">Nom</label></td>

@@ -1,7 +1,8 @@
-<img class="img_fond" src="boutons/background_help.png" alt="background"/>
-		<fieldset>
-    	<legend> Les regles du jeu :</legend>
-			<h1>Les règles suivantes seront implémentées : </h1>
+<?php $this->assign('title', 'Aide');?>
+
+<fieldset>
+    <legend> Les regles du jeu :</legend>
+		<h3>Les règles suivantes seront implémentées : </h3>
 			<ul>
 				<li>Un combattant se trouve dans une arène en damier à une position X,Y. Cette position ne peut pas se trouver hors des dimension de l'arène. Un seul combattant par case. Une arène par site.</li>
 				<li>Un combattant commence avec les caractéristiques suivantes : vue= 0, force=1, point de vie=3. Il apparaît à une position aléatoire libre. </li>
@@ -13,7 +14,5 @@
 				<li>Progression : à chaque attaque réussie le combattant gagne 1 point d'expérience. Si l'attaque tue l'adversaire, le combattant gagne en plus autant de points d'expériences que le niveau de l'adversaire vaincu. Tous les 4 points d'expériences, le combattant change de niveau et peut choisir d'augmenter une de ses caractéristiques : vue +1 ou force+1 ou point de vie+3.</li>
 				<li>Chaque action provoque la création d'un événement avec une description claire. Par exemple : « jonh attaque bill et le touche ».</li>
     
-    		<h2>Ce site web est réalisé dans le cadre d'un projet web au cours d'une formation d'ingénieur en apprentissage à l'ECE Paris.</h2>
-		</fieldset> 
-
-		<a href="accueil.html"> <img id="img_home" src="boutons/home.png"/></a>
+    	<h4>Ce site web est réalisé dans le cadre d'un projet web au cours d'une formation d'ingénieur en apprentissage à l'ECE Paris.</h4>
+</fieldset> 

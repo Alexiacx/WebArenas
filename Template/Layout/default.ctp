@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Combattant-ECE';
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,32 +26,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-    <?= $this->Html->css('login.css') ?>
     <?= $this->Html->css('index.css') ?>
-    <?= $this->Html->css('fighter.css') ?>
-    <?= $this->Html->css('sight.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-    <title> 
-      Combattant-ECE
-    </title>
 </head>
 <body>
     <header>
-        <a href="index.ctp">Deconnexion</a>
-        <a href="help.ctp">Les règles</a>
-        <a href="diary.ctp">Le journal</a>
-        <a href="fighter.ctp">Mon combattant</a>
-    </header>
-    <form action ="recherche.html" method="post" >               
+        <a href="help">Les règles</a>
+        <a href="diary">Le journal</a>
+        <a href="sight">Vision</a>
+        <a href="fighter">Mon combattant</a>
+        <form action ="recherche.html" method="post" >               
             <input name ="search" type="text" placeholder="Rechercher un utilisateur"/>
             <input  name="submit" type="submit" value="Rechercher">    
         </form>
+        <a href="index">Deconnexion</a>
+    </header>
 
     <?= $this->Flash->render() ?>
 

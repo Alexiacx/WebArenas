@@ -1,19 +1,18 @@
-<a id="click" onclick="afficher_cacher('choisir');"><img class="img_mini" src="boutons/choisir.png" alt="choisir"/></a>
-    <a id="click" onclick="afficher_cacher('perso_1');"><img class="img_mini" src="personnages/comb_1.png" alt="comb_1"/></a>
-    <a id="click" onclick="afficher_cacher('perso_2');"><img class="img_mini" src="personnages/comb_2.png" alt="comb_2"/></a>
+<?php $this->assign('title', 'Combattant');?>
 
-  <section id="choisir">
+      <section id="choisir">
     <h1> Choisir son personnage</h1>
-    <img class="img_choisir" src="personnages/comb_1.png" alt="comb_1"/>
-    <img class="img_choisir" src="personnages/comb_2.png" alt="comb_1"/>
-    <img class="img_choisir" src="personnages/comb_3.png" alt="comb_1"/>
-    <img class="img_choisir" src="personnages/comb_4.png" alt="comb_1"/>
-    <img class="img_choisir" src="personnages/comb_5.png" alt="comb_1"/>
+
+    <?= $this->Html->image('comb_1.png', ['class' => 'img_choisir'], ['alt' => 'comb_1']); ?>
+    <?= $this->Html->image('comb_2.png', ['class' => 'img_choisir'], ['alt' => 'comb_2']); ?>
+    <?= $this->Html->image('comb_3.png', ['class' => 'img_choisir'], ['alt' => 'comb_3']); ?>
+    <?= $this->Html->image('comb_4.png', ['class' => 'img_choisir'], ['alt' => 'comb_4']); ?>
+    <?= $this->Html->image('comb_5.png', ['class' => 'img_choisir'], ['alt' => 'comb_5']); ?>
 
   </section>
   <section id="perso_1">
     <h1> Mon premier combattant </h1>
-      <img class="img_comb" src="personnages/comb_1.png" alt="comb_1"/>
+      <?= $this->Html->image('comb_1.png', ['class' => 'img_comb'], ['alt' => 'comb_1']); ?>
     <table>
         <tr>
             <td>Vue =</td>
@@ -36,7 +35,8 @@
   </section>
   <section id="perso_2">
     <h1> Mon deuxième combattant </h1>
-      <img class="img_comb" src="personnages/comb_2.png" alt="comb_2"/>
+    <?= $this->Html->image('comb_2.png', ['class' => 'img_comb'], ['alt' => 'comb_2']); ?>
+      
         <table>
         <tr>
             <td>Vue =</td>

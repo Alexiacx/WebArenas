@@ -1,10 +1,11 @@
+<?php $this->assign('title', 'Connexion');?>
 
 <h1>LES COMBATTANTS - E C E</h1>
 <h2>Combatter vos amis un enemis grâce à ce jeu!</h2>
 
 <fieldset id="login">
     <legend>Connecte toi :</legend>
-    	<form action="vision.php" method="post">
+    	<form action="sight" method="post">
     		<table>
         		<tr>
             		<td><label for="id">Identifiant</label></td>
@@ -23,10 +24,8 @@
 
     <fieldset id="register">
     <legend>Pas encore inscrit ?</legend>
-        <form  action="connexion.php" method="post" >
+        <form  action="login." method="post" >
         	<input type="submit" value="S'inscrire">
         </form>
     </fieldset>
-
-    <a href="help.html"> <img id="img_help" src="boutons/help.png"/></a>
 
