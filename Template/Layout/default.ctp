@@ -26,7 +26,7 @@ $cakeDescription = 'Combattant-ECE';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('index.css') ?>
+    <?= $this->Html->css('webarenas.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -39,7 +39,7 @@ $cakeDescription = 'Combattant-ECE';
         <a href="diary">Le journal</a>
         <a href="sight">Vision</a>
         <a href="fighter">Mon combattant</a>
-        <a href="index">Deconnexion</a>
+        <a href="home">Deconnexion</a>
         <form action ="recherche.html" method="post" >               
             <input name ="search" type="text" placeholder="Rechercher un utilisateur"/>
             <input name="submit" type="submit" value="Rechercher">    

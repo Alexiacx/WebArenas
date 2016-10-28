@@ -1,9 +1,24 @@
 <?php $this->assign('title', 'Inscription');?>
 
-    <h1>LES COMBATTANTS - E C E</h1>
-    
-    <fieldset id="information">
-    <legend>Informations  personnelles</legend>
+<h1>LES COMBATTANTS - E C E</h1>
+
+<?php echo $this->Form->create('players'); ?>
+
+<fieldset id="information">
+    <legend>
+        <?php echo ('Informations  personnelles '); ?>
+    </legend>
+        <?php 
+            echo $this->Form->input('name', array('label' => 'Nom : ', 'placeholder' => 'Saisir ton identifiant'));
+            echo $this->Form->input('surname', array('label' => 'Prénom : ', 'placeholder' =>'Saisir ton mot de passe'));
+            echo $this->Form->input('nationality', array('label' => 'Nationelité : ', 'placeholder' =>'Saisir ton mot de passe'));
+            echo $this->Form->input('surname', array('label' => 'Prénom : ', 'placeholder' =>'Saisir ton mot de passe'));
+            echo $this->Form->input('surname', array('label' => 'Prénom : ', 'placeholder' =>'Saisir ton mot de passe'));
+            echo $this->Form->input('surname', array('label' => 'Prénom : ', 'placeholder' =>'Saisir ton mot de passe'));
+            echo $this->Form->button('Se connecter', array('type' => 'submit'));
+        ?>
+</fieldset>
+
 
     <form action="sight" method="post">
     <table>
