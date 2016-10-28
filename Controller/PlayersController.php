@@ -8,7 +8,8 @@ use App\Controller\AppController;
 */
 class PlayersController  extends AppController
 {
-public function add(){
-	
+public function login(){
+	$email=$_POST['email'];
+	$password=$_POST['password'];
 }
 }
