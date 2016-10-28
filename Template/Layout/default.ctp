@@ -35,16 +35,16 @@ $cakeDescription = 'Combattant-ECE';
 </head>
 <body>
     <header>
-        <a href="help">Les règles</a>
-        <a href="diary">Le journal</a>
-        <a href="sight">Vision</a>
-        <a href="fighter">Mon combattant</a>
-        <a href="home">Deconnexion</a>
-        <form action ="recherche.html" method="post" >               
-            <input name ="search" type="text" placeholder="Rechercher un utilisateur"/>
-            <input name="submit" type="submit" value="Rechercher">    
-        </form>
-
+        <ul> 
+            <li> <?php echo $this->Html->link('Les règles', '/Arenas/help');?> </li> 
+            <li> <?php echo $this->Html->link('Le journal', '/Arenas/diary');?> </li> 
+            <li> <?php echo $this->Html->link('Vision', '/Arenas/sight');?> </li> 
+            <li> <?php echo $this->Html->link('Mon combattant', '/Arenas/fighter'); ?> </li> 
+            <li> <?php echo $this->Form->input('', array('placeholder' => 'Rechercher un utilisateur'));?> </li> 
+            <?php echo $this->Form->button('Rechercher', array('type' => 'submit'));?> </li> 
+            <?php echo $this->Form->end();?>
+            <li> <?php echo $this->Html->link('Deconnexion', '/Arenas/home');?> </li> 
+        </ul>
     </header>
 
     <?= $this->Flash->render() ?>

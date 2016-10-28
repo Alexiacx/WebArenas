@@ -12,7 +12,7 @@ public function home()
 {
 
 }
-public function login()
+public function adduser()
 {
 	
 }
