@@ -3,7 +3,7 @@
 <h1>LES COMBATTANTS - E C E</h1>
 <h2>Combatter vos amis un enemis grâce à ce jeu!</h2>
 
-<?php echo $this->Form->create('Player'/*, array('action' => 'diary')*/);?>
+<?php echo $this->Form->create();?>
 
 <fieldset id="login">
     <legend>
@@ -22,8 +22,6 @@
         <?php echo ('Pas encore inscrit ?'); ?>
     </legend>
         <?php 
-            //if (!$this->Session->read('Auth.User.id')) :
             echo $this->Html->link('S\'inscrire', array('controller' => 'Arenas', 'action'=>'adduser'), array('class' => 'button'));
-            //endif 
         ?>
 </fieldset>

@@ -44,6 +44,7 @@ $cakeDescription = 'Combattant-ECE';
             <?php echo $this->Form->button('Rechercher', array('type' => 'submit'));?> </li> 
             <?php echo $this->Form->end();?>
             <li> <?php echo $this->Html->link('Deconnexion', '/Arenas/home');?> </li> 
+           
         </ul>
     </header>
 

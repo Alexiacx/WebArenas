@@ -2,7 +2,7 @@
 
 <h1>LES COMBATTANTS - E C E</h1>
 
-<?php echo $this->Form->create('Players'/*, array('action' => 'diary')*/);?>
+<?php echo $this->Form->create();?>
 
 <fieldset id="information">
     <legend>
@@ -37,3 +37,4 @@
         <h2>3) La page Journal :</h2>
         <p>Sur cette page, vous pouvez voir tout les événements à portée de vue de moins de 24h.</p>
 </fieldset> 
+
