@@ -3,7 +3,7 @@
 <h1>LES COMBATTANTS - E C E</h1>
 <h2>Combatter vos amis un enemis grâce à ce jeu!</h2>
 
-<?php echo $this->Form->create('Arenas', array('action' => 'diary'));?>
+<?php echo $this->Form->create('Player'/*, array('action' => 'diary')*/);?>
 
 <fieldset id="login">
     <legend>
@@ -12,16 +12,18 @@
         <?php 
             echo $this->Form->input('email', array('label' => 'Identifiant : ', 'placeholder' => 'Saisir ton email'));
             echo $this->Form->input('password', array('label' => 'Mot de passe : ', 'placeholder' =>'Saisir ton mot de passe'));
-            echo $this->Form->button('Se connecter', array('type' => 'submit','class' => 'button'));
+            echo $this->Form->button('Se connecter', array('type' => 'submit', 'class' => 'button'));
             echo $this->Form->end();
         ?>
 </fieldset>
 
 <fieldset id="register">
-    <legend>
+    <legend>      
         <?php echo ('Pas encore inscrit ?'); ?>
-        </legend>
+    </legend>
         <?php 
-            echo $this->Html->link('S\'inscrire', '/Arenas/adduser', array('class' => 'button'));
+            //if (!$this->Session->read('Auth.User.id')) :
+            echo $this->Html->link('S\'inscrire', array('controller' => 'Arenas', 'action'=>'adduser'), array('class' => 'button'));
+            //endif 
         ?>
 </fieldset>

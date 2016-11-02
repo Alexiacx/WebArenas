@@ -2,25 +2,30 @@
 
 <h1>LES COMBATTANTS - E C E</h1>
 
-<?php echo $this->Form->create('Arenas', array('action' => 'diary'));?>
+<?php echo $this->Form->create('Players'/*, array('action' => 'diary')*/);?>
 
 <fieldset id="information">
     <legend>
         <?php echo ('Informations  personnelles '); ?>
     </legend>
-        <?php 
-            echo $this->Form->input('name', array('label' => 'Nom :'));
-            echo $this->Form->input('surname', array('label' => 'Prénom :'));
-            echo $this->Form->input('nationality', array('label' => 'Nationalité :'));
-            echo $this->Form->input('city', array('label' => 'Ville :'));
-            echo $this->Form->input('age', array('label' => 'Age :'));
-            echo $this->Form->input('sexe', array('label' => 'Sexe :'));
-            echo $this->Form->input('email', array('label' => 'Identifiant : ', 'placeholder' => 'Saisir ton email'));
-            echo $this->Form->input('password', array('label' => 'Mot de passe : ', 'placeholder' =>'Saisir ton mot de passe'));
-            echo $this->Form->input('passwordconfirme', array('label' => 'Confirmer ton mot de passe : ', 'placeholder' =>'Saisir ton mot de passe'));
-            echo $this->Form->button('S\'inscrire', array('type' => 'submit'));
-            echo $this->Form->end();
-        ?>
+        <table id="adduser">
+            <tr>
+                <td><?php echo $this->Form->input('name', array('label' => 'Nom :'));?></td>
+                <td><?php echo $this->Form->input('surname', array('label' => 'Prénom :'));?></td>
+                <td><?php echo $this->Form->input('nationality', array('label' => 'Nationalité :'));?></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->input('city', array('label' => 'Ville :'));?></td>
+                <td><?php echo $this->Form->input('age', array('label' => 'Age :', 'type' => 'number'));?></td>
+                <td><?php echo $this->Form->label('Sexe : '); echo $this->Form->select('sexe', array('Choissir','Femme', 'Homme'));?></td>
+            <tr>
+                <td><?php echo $this->Form->input('email', array('label' => 'Identifiant : ', 'placeholder' => 'Saisir ton email'));?></td>
+                <td><?php echo $this->Form->input('password', array('label' => 'Mot de passe : ', 'placeholder' =>'Saisir ton mot de passe'));?></td>
+                <td><?php echo $this->Form->input('passwordconfirme', array('label' => 'Confirmer ton mot de passe : ', 'placeholder' =>'Comfirme ton mot de passe'));?></td>
+            </tr>
+        </table>
+        <?php echo $this->Form->button('Se connecter', array('type' => 'submit', 'class' => 'button'));?>
+        <?php echo $this->Form->end();?>
 </fieldset>
 
 <fieldset id="explication">
