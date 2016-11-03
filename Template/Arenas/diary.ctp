@@ -9,3 +9,22 @@ foreach($journal as $entree)
 
 }
 ?> 
+
+<br/><br/>
+
+<section id="tableau">
+	<table class="tableau_vue">
+		<tr>
+			<td class="tableau_vue2"> Name </td>
+			<td class="tableau_vue2"> Position x </td>
+			<td class="tableau_vue2"> Position y </td>
+			<td class="tableau_vue2"> Date </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+		</tr>
+	</table>
+</section>

@@ -43,6 +43,16 @@ $cakeDescription = 'Combattant-ECE';
             <li> <?php echo $this->Form->input('', array('placeholder' => 'Rechercher un utilisateur'));?> </li> 
             <?php echo $this->Form->button('Rechercher', array('type' => 'submit'));?> </li> 
             <?php echo $this->Form->end();?>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
             <li> <?php echo $this->Html->link('Deconnexion', '/Players/logout');?> </li> 
            
         </ul>
