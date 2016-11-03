@@ -27,9 +27,8 @@ public function sight()
 }
 public function diary()
 {
-	$fighterid=1;
 	$this->loadModel('Events');
-	$journal=$this->Events->getDiaryForFighter($fighterid);
+	$journal=$this->Events->getDiary();
 	$this->set("journal",$journal);
 }
 public function help()

@@ -77,9 +77,7 @@ class FightersController extends AppController
      */
     public function edit($id = null)
     {
-        $fighter = $this->Fighters->get($id, [
-            'contain' => []
-        ]);
+        $fighter = $this->Fighters->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $fighter = $this->Fighters->patchEntity($fighter, $this->request->data);
             if ($this->Fighters->save($fighter)) {

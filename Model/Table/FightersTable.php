@@ -54,6 +54,16 @@ class FightersTable extends Table
         ]);
     }
 
+    public function findById($fid)
+    {
+        $combattant = $this->find('all', ['all',
+            'conditions' => [
+            'Fighter.id =' => $fid,
+            ]
+        ]);
+        return $combattant;
+    }
+
     /**
      * Default validation rules.
      *

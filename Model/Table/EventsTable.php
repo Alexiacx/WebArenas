@@ -41,9 +41,17 @@ class EventsTable extends Table
      * @param int $fid The fighter we're looking for
      * @return events data
      */
-    public function getDiaryForFighter($fid)
+    public function getDiary()
     {
-        $journal= $this->find('all');
+        $day = 24*60*60;
+        $journal= $this->find('all', [ 'all',
+            'conditions' => [
+            'Events.date >=' => date("Y-m-d H:i:s", time()-$day),
+            ],
+            'order' => ['Events.date DESC']
+        ]);
+        // var_dump($journal); die;
+
         return $journal->toArray();
     }
 
