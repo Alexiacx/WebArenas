@@ -45,16 +45,16 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginAction' => [
-                'controller' => 'Arenas',
-                'action' => 'home'
+                'controller' => 'Players',
+                'action' => 'login'
             ],
             'loginRedirect' => [
                 'controller' => 'Arenas',
                 'action' => 'fighter'
             ],
             'logoutRedirect' => [
-                'controller' => 'Arenas',
-                'action' => 'home',
+                'controller' => 'Players',
+                'action' => 'login',
             ],
             'authError' => 'Hop hop hop',
             'authenticate' => [

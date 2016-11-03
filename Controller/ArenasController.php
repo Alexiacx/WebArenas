@@ -14,16 +14,18 @@ public function home()
 	if ($this->request->is('post')) {
 		var_dump("YESSSSSSS");
 		$user = $this->Auth->identify();
+		var_dump(debug_backtrace()); die;
 		var_dump($user);
 		var_dump("TRUE = YIPIIIIII");
 		var_dump("FALSE = OUIIIIIIIIIIIN");
 		if($user) {
 			$this->Auth->setUser($user);
 			return $this->rediurect($this->Auth->redirectUrl());
+			var_dump("Ca marche ?");
 		} else {
-			$this->Flash->error(__("Nom d'utilisateur ou mdp incorrect"), [
-				'key' => 'auth'
-			]);
+			$this->Flash->error(
+				__("Nom d'utilisateur ou mdp incorrect")
+			);
 		}
 	}
 	/*$email=$this->request->data['email'];
