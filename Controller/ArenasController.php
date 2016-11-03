@@ -10,8 +10,24 @@ class ArenasController  extends AppController
 {
 public function home()
 {
-	$email=$this->request->data['email'];
-	$password=$this->request->data['password'];
+	var_dump("ALLLLEEEEEEZ");
+	if ($this->request->is('post')) {
+		var_dump("YESSSSSSS");
+		$user = $this->Auth->identify();
+		var_dump($user);
+		var_dump("TRUE = YIPIIIIII");
+		var_dump("FALSE = OUIIIIIIIIIIIN");
+		if($user) {
+			$this->Auth->setUser($user);
+			return $this->rediurect($this->Auth->redirectUrl());
+		} else {
+			$this->Flash->error(__("Nom d'utilisateur ou mdp incorrect"), [
+				'key' => 'auth'
+			]);
+		}
+	}
+	/*$email=$this->request->data['email'];
+	$password=$this->request->data['password'];*/
 }
 
 /*public function exit(){

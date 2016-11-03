@@ -3,7 +3,7 @@
 <h1>LES COMBATTANTS - E C E</h1>
 <h2>Combatter vos amis un enemis grâce à ce jeu!</h2>
 
-<?php echo $this->Form->create();?>
+<?php echo $this->Form->create('Players');?>
 
 <fieldset id="login">
     <legend>
