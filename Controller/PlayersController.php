@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event; 
 
 /**
  * Players Controller
@@ -41,30 +42,34 @@ class PlayersController extends AppController
         $this->set('_serialize', ['player']);
     }
 
+
     /**
-     * Index method
+     * login method
      *
-     * @return \Cake\Network\Response|null
      */
     public function login()
     {
-        var_dump("ALLLLEEEEEEZ");
         if ($this->request->is('post')) {
-        var_dump("YESSSSSSS");
-        $user = $this->Auth->identify();
-        var_dump($user);
-        var_dump("TRUE = YIPIIIIII");
-        var_dump("FALSE = OUIIIIIIIIIIIN");
-        if($user) {
-            $this->Auth->setUser($user);
-            return $this->rediurect($this->Auth->redirectUrl());
-            var_dump("Ca marche ?");
-        } else {
-            $this->Flash->error(
-                __("Nom d'utilisateur ou mdp incorrect")
-            );
+            //var_dump($this->Auth->identify()); die();
+            $user = $this->Auth->identify();
+            if($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error(
+                    __("Nom d'utilisateur ou mdp incorrect")
+                );
+            }
         }
     }
+
+        /**
+     * logout method
+     *
+     */
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 
 
@@ -135,4 +140,15 @@ class PlayersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function beforeFilter (Event $event) {
+            parent::beforeFilter($event);
+            $this->Auth->allow('login' , 'logout' , 'add');
+
+        }
+    public function initialize () {
+            parent::initialize();
+            $this->Auth->allow('login' , 'logout' , 'add');
+
+        }
 }

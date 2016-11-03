@@ -10,10 +10,7 @@
         <?php echo ('Connecte toi :'); ?>
     </legend>
         <?php 
-            echo $this->Form->input('email', array('label' => 'Identifiant : ', 'placeholder' => 'Saisir ton email'));
-            echo $this->Form->input('password', array('label' => 'Mot de passe : ', 'placeholder' =>'Saisir ton mot de passe'));
-            echo $this->Form->button('Se connecter', array('type' => 'submit', 'class' => 'button'));
-            echo $this->Form->end();
+            echo $this->Html->link('Se connecter', array('controller' => 'Players', 'action'=>'login'), array('class' => 'button'));
         ?>
 </fieldset>
 
@@ -22,6 +19,6 @@
         <?php echo ('Pas encore inscrit ?'); ?>
     </legend>
         <?php 
-            echo $this->Html->link('S\'inscrire', array('controller' => 'Arenas', 'action'=>'adduser'), array('class' => 'button'));
+            echo $this->Html->link('S\'inscrire', array('controller' => 'Players', 'action'=>'add'), array('class' => 'button'));
         ?>
 </fieldset>

@@ -44,19 +44,6 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'loginAction' => [
-                'controller' => 'Players',
-                'action' => 'login'
-            ],
-            'loginRedirect' => [
-                'controller' => 'Arenas',
-                'action' => 'fighter'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Players',
-                'action' => 'login',
-            ],
-            'authError' => 'Hop hop hop',
             'authenticate' => [
                 'Form' => [
                     'userModel' => 'players',
@@ -65,8 +52,25 @@ class AppController extends Controller
                         'password' => 'password'
                     ]
                 ]
-            ]
+            ],
+
+            'loginAction' => [
+                'controller' => 'Players',
+                'action' => 'login'
+            ],
+
+            'loginRedirect' => [
+                'controller' => 'Arenas',
+                'action' => 'fighter'
+            ],
+
+            'logoutRedirect' => [
+                'controller' => 'Arenas',
+                'action' => 'home'
+            ],
         ]);
+
+        $this->Auth->allow(['display' , 'add', 'home']);
     }
 
     /**

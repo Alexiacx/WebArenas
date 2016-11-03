@@ -18,3 +18,13 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+
+<fieldset id="explication">
+      <legend>Explications du site</legend>
+        <h2>1) Votre page Vision :</h2>
+        <p>Cette page affiche les combattants et les objets du décors en vue classés par distance croissante. vous pouvez : vous déplacer, attaquer (dans une direction).</p>
+        <h2>2) Votre page de Combattant :</h2>
+        <p>Cette page présente la feuille de votre personnage. Vous pouvez faire les action suivante : passer de niveau, choisir un avatar, ou en cas de mort : recréer un combattant.</p>
+        <h2>3) La page Journal :</h2>
+        <p>Sur cette page, vous pouvez voir tout les événements à portée de vue de moins de 24h.</p>
+</fieldset> 

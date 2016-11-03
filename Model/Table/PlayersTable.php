@@ -47,7 +47,7 @@ class PlayersTable extends Table
      * @param Event $event 
      * @return boolean
      */
-    public function beforeSave(Event $event)
+    /**public function beforeSave(Event $event)
     {
         $entity = $event->data['entity'];
 
@@ -61,7 +61,7 @@ class PlayersTable extends Table
             $entity->api_key = $hasher->hash($entity->api_key_plain);
         }
         return true;
-    }
+    }*/
 
     /**
      * Default validation rules.
