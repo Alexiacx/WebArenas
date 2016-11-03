@@ -40,9 +40,6 @@ $cakeDescription = 'Combattant-ECE';
             <li> <?php echo $this->Html->link('Le journal', '/Arenas/diary');?> </li> 
             <li> <?php echo $this->Html->link('Vision', '/Arenas/sight');?> </li> 
             <li> <?php echo $this->Html->link('Mon combattant', '/Arenas/fighter'); ?> </li> 
-            <li> <?php echo $this->Form->input('', array('placeholder' => 'Rechercher un utilisateur'));?> </li> 
-            <?php echo $this->Form->button('Rechercher', array('type' => 'submit'));?> </li> 
-            <?php echo $this->Form->end();?>
             <li></li>
             <li></li>
             <li></li>

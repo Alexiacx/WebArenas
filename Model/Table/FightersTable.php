@@ -58,10 +58,20 @@ class FightersTable extends Table
     {
         $combattant = $this->find('all', ['all',
             'conditions' => [
-            'Fighter.id =' => $fid,
+            'Fighters.id =' => $fid,
             ]
         ]);
-        return $combattant;
+        return $combattant->toArray();
+    }
+
+    public function findByPlayerId($userId)
+    {
+        $combattant = $this->find('all', ['all',
+            'conditions' => [
+            'Fighters.player_id =' => $userId,
+            ]
+        ]);
+        return $combattant->toArray();
     }
 
     /**

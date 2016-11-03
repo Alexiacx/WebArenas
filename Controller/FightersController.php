@@ -53,7 +53,19 @@ class FightersController extends AppController
     {
         $fighter = $this->Fighters->newEntity();
         if ($this->request->is('post')) {
-            $fighter = $this->Fighters->patchEntity($fighter, $this->request->data);
+            $newFighter = [
+                'name' => $this->request->data['name'],
+                'player_id' => $this->Auth->user('id'),
+                'coordinate_x' => 2,
+                'coordinate_y' => 2,
+                'level' => 1,
+                'xp' => 0,
+                'skill_sight' => 2,
+                'skill_strength' => 1,
+                'skill_health' => 5,
+                'current_health' => 5,
+            ];
+            $fighter = $this->Fighters->patchEntity($fighter, $newFighter);
             if ($this->Fighters->save($fighter)) {
                 $this->Flash->success(__('The fighter has been saved.'));
 

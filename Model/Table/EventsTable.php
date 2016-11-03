@@ -50,7 +50,6 @@ class EventsTable extends Table
             ],
             'order' => ['Events.date DESC']
         ]);
-        // var_dump($journal); die;
 
         return $journal->toArray();
     }
