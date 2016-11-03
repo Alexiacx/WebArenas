@@ -24,8 +24,19 @@ public function fighter()
 	$combattant = $this->Fighters->findByPlayerId($this->Auth->user('id'));
 	$this->set("combattant", $combattant);
         if ($this->request->is('post')) {
-        	if ($this->request->data['level']) {
-        		$this->request->data['level'] = $this->request->data['level']+$combattant['0']['level'];
+        	// var_dump($this->request->data); die;
+        	if (isset($this->request->data['skill_sight'])) {
+        		$this->request->data['skill_sight'] = $combattant['0']['skill_sight'] + 1;
+        		$this->request->data['level'] = $combattant['0']['level'] + 1;
+        		$fighter = $this->Fighters->patchEntity($combattant['0'], $this->request->data);
+        	} elseif (isset($this->request->data['skill_strength'])) {
+        		$this->request->data['skill_strength'] = $combattant['0']['skill_strength'] + 1;
+        		$this->request->data['level'] = $combattant['0']['level'] + 1;
+        		$fighter = $this->Fighters->patchEntity($combattant['0'], $this->request->data);
+        	} elseif (isset($this->request->data['skill_health'])) {
+        		$this->request->data['skill_health'] = $combattant['0']['skill_health'] + 3;
+        		$this->request->data['current_health'] = $this->request->data['skill_health'];
+        		$this->request->data['level'] = $combattant['0']['level'] + 1;
         		$fighter = $this->Fighters->patchEntity($combattant['0'], $this->request->data);
         	}
         	else {
