@@ -54,6 +54,18 @@ class EventsTable extends Table
         return $journal->toArray();
     }
 
+    public function actionMessage($name, $x, $y)
+    {
+        // $event = $this->Events->newEntity();
+        // $message = ['name' => $name, 'date' => date("Y-m-d H:i:s", time(), 'coordinate_x' => $x, 'coordinate_y', $y];
+        //     $event = $this->Events->patchEntity($event, $message);
+        //     if ($this->Events->save($event)) {
+        //         $this->Flash->success(__('The event has been saved.'));
+        //     } else {
+        //         $this->Flash->error(__('The event could not be saved. Please, try again.'));
+        //     }
+    }
+
     /**
      * Default validation rules.
      *

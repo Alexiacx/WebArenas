@@ -101,6 +101,173 @@ class FightersTable extends Table
         return $fightersInSight->toArray();
     }
 
+    public function getPA($fid)
+    {
+        $combattant = $this->find('all', ['all',
+            'conditions' => [
+            'Fighters.id =' => $fid,
+            ]
+        ]);
+        return $combattant->toArray();
+    }
+
+    public function doMove($direction, $combattant)
+    {
+        switch ($direction) {
+            case 'up' :
+                if ($combattant['coordinate_y']+1 > 9) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x'],
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y']+1,
+                    ]
+                ]);
+                if($potEnnemy->toArray() != null) {
+                    return 5;
+                } else {
+                    return 1;
+                }
+                break;
+            case 'down' :
+                if ($combattant['coordinate_y']-1 < 0) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x'],
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y']-1,
+                    ]
+                ]);
+                if($potEnnemy->toArray() != null) {
+                    return 5;
+                } else {
+                    return 2;
+                }
+                break;
+            case 'left' :
+                if ($combattant['coordinate_x']-1 < 0) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x']-1,
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y'],
+                    ]
+                ]);
+                if($potEnnemy->toArray() != null) {
+                    return 5;
+                } else {
+                    return 3;
+                }
+                break;
+            case 'right' :
+                if ($combattant['coordinate_x']+1 > 14) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x']+1,
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y'],
+                    ]
+                ]);
+                if($potEnnemy->toArray() != null) {
+                    return 5;
+                } else {
+                    return 4;
+                }
+                break;
+        }
+    }
+
+    public function doAttack($direction, $combattant)
+    {
+        $d20 = rand(1,20);
+        switch ($direction) {
+            case 'up' :
+                if ($combattant['coordinate_y']+1 > 9) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x'],
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y']+1,
+                    ]
+                ]);
+                $attacked = $potEnnemy->toArray();
+                if($attacked != null) {
+                    if ($d20 > 10-$combattant['level']+$attacked['0']['level']) {
+                        return $attacked['0'];
+                    } else {
+                        $attacked['0']['miss'] = 1;
+                        return $attacked['0'];
+                    };
+                }
+                break;
+            case 'down' :
+                if ($combattant['coordinate_y']-1 < 0) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x'],
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y']-1,
+                    ]
+                ]);
+                $attacked = $potEnnemy->toArray();
+                if($attacked != null) {
+                    if ($d20 > 10-$combattant['level']+$attacked['0']['level']) {
+                        return $attacked['0'];
+                    } else {
+                        $attacked['0']['miss'] = 1;
+                        return $attacked['0'];
+                    }
+                }
+                break;
+            case 'left' :
+                if ($combattant['coordinate_x']-1 < 0) {
+                    return 0;;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x']-1,
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y'],
+                    ]
+                ]);
+                $attacked = $potEnnemy->toArray();
+                if($attacked != null) {
+                    if ($d20 > (10-$combattant['level']+$attacked['0']['level'])) {
+                        return $attacked['0'];
+                    } else {
+                        $attacked['0']['miss'] = 1;
+                        return $attacked['0'];
+                    }
+                } else return 0;
+                break;
+            case 'right' :
+                if ($combattant['coordinate_x']+1 > 14) {
+                    return 0;
+                }
+                $potEnnemy = $this->find('all', ['all',
+                    'conditions' => [
+                    'Fighters.coordinate_x =' => $combattant['coordinate_x']+1,
+                    'Fighters.coordinate_y =' => $combattant['coordinate_y'],
+                    ]
+                ]);
+                $attacked = $potEnnemy->toArray();
+                if($attacked != null) {
+                    if ($d20 > 10-$combattant['level']+$attacked['0']['level']) {
+                        return $attacked['0'];
+                    } else {
+                        $attacked['0']['miss'] = 1;
+                        return $attacked['0'];
+                    }
+                }
+                break;
+        }
+    }
+
     /**
      * Default validation rules.
      *

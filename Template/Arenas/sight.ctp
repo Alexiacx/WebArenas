@@ -9,6 +9,7 @@
 			<td class="tableau_vue2"> Name </td>
 			<td class="tableau_vue2"> Position x </td>
 			<td class="tableau_vue2"> Position y </td>
+			<td class="tableau_vue2"> PV </td>
 			<td class="tableau_vue2"> Distance </td>
 		</tr>
 		<tr>
@@ -16,6 +17,7 @@
 			<td class="tableau_vue2"><?= $combattant->name ?></td>
 			<td class="tableau_vue2"><?= $combattant->coordinate_x ?></td>
 			<td class="tableau_vue2"><?= $combattant->coordinate_y ?></td>
+			<td class="tableau_vue2"><?= $combattant->current_health.'/'.$combattant['skill_health'] ?></td>
 			<td class="tableau_vue2">0</td>
 		</tr>
 		<?php foreach ($ennemies as $ennemy) :?>
@@ -24,6 +26,7 @@
 				<td class="tableau_vue2"><?= $ennemy->name ?></td>
 				<td class="tableau_vue2"><?= $ennemy->coordinate_x ?></td>
 				<td class="tableau_vue2"><?= $ennemy->coordinate_y ?></td>
+				<td class="tableau_vue2"><?= $ennemy->current_health.'/'.$ennemy->skill_health ?></td>
 				<td class="tableau_vue2"><?= abs(($ennemy->coordinate_x - $combattant->coordinate_x))+abs(($ennemy->coordinate_y-$combattant->coordinate_y)) ?></td>
 			</tr>
 		<?php endforeach ?>
@@ -35,13 +38,29 @@
 	<table id="bouton_deplacement2">
 		<tr>
 			<td></td>
-			<td><input type="submit" value="Haut" class="bouton"></td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'up']) ?>
+                <?= $this->Form->button(__('Haut')) ?>
+                <?= $this->Form->end() ?>
+            </td>
 		    <td></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Gauche" class="bouton"></td>
-			<td><input type="submit" value="Bas" class="bouton"></td>
-			<td><input type="submit" value="Droite" class="bouton"></td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'left']) ?>
+                <?= $this->Form->button(__('Gauche')) ?>
+                <?= $this->Form->end() ?>
+            </td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'down']) ?>
+                <?= $this->Form->button(__('Bas')) ?>
+                <?= $this->Form->end() ?>
+            </td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'right']) ?>
+                <?= $this->Form->button(__('Droite')) ?>
+                <?= $this->Form->end() ?>
+            </td>
 		</tr>
 	</table>
 </section>
@@ -51,13 +70,29 @@
 	<table id="bouton_attaque2">
 		<tr>
 			<td></td>
-			<td><input type="submit" value="Haut" class="bouton"></td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'up']) ?>
+                <?= $this->Form->button(__('Haut')) ?>
+                <?= $this->Form->end() ?>
+            </td>
 		    <td></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Gauche" class="bouton"></td>
-			<td><input type="submit" value="Bas" class="bouton"></td>
-			<td><input type="submit" value="Droite" class="bouton"></td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'left']) ?>
+                <?= $this->Form->button(__('Gauche')) ?>
+                <?= $this->Form->end() ?>
+            </td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'down']) ?>
+                <?= $this->Form->button(__('Bas')) ?>
+                <?= $this->Form->end() ?>
+            </td>
+			<td><?= $this->Form->create() ?>
+                <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'right']) ?>
+                <?= $this->Form->button(__('Droite')) ?>
+                <?= $this->Form->end() ?>
+            </td>
 		</tr>
 	</table>
 </section>
