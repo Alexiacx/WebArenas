@@ -82,17 +82,18 @@ class PlayersController extends AppController
     {
         $player = $this->Players->newEntity();
         if ($this->request->is('post')) {
-            $player = $this->Players->patchEntity($player, $this->request->data);
-            if ($this->Players->save($player)) {
-                $this->Flash->success(__('The player has been saved.'));
+            if ($this->request->data['password'] == $this->request->data['password_confirm']) {
+                $player = $this->Players->patchEntity($player, $this->request->data);
+                if ($this->Players->save($player)) {
+                    $this->Flash->success(__('The player has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The player could not be saved. Please, try again.'));
+                    return $this->redirect($this->Auth->redirectUrl());
+                } else {
+                    $this->Flash->error(__('The player could not be saved. Please, try again.'));
+                }
             }
+            
         }
-        $this->set(compact('player'));
-        $this->set('_serialize', ['player']);
     }
 
     /**
