@@ -50,6 +50,13 @@ $cakeDescription = 'Combattant-ECE';
             <li></li>
             <li></li>
             <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
             <li> <?php echo $this->Html->link('Deconnexion', '/Players/logout');?> </li> 
            
         </ul>
