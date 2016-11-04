@@ -1,30 +1,24 @@
 <?php $this->assign('title', 'Journal');?>
-<?php 
-foreach($journal as $entree)
-{	
-	echo '<li>'.('Nom de mon joueur :') .$entree->name.'</li>';
-	echo '<li>'.('Cordonnée en x :') .$entree->coordinate_x.'</li>';
-	echo '<li>'.('Cordonnée en y :') .$entree->coordinate_y.'</li>';
-	echo '<li>'.('Date :') .$entree->date.'</li>';
-
-}
-?> 
-
-<br/><br/>
 
 <section id="tableau">
 	<table class="tableau_vue">
-		<tr>
-			<td class="tableau_vue2"> Name </td>
-			<td class="tableau_vue2"> Position x </td>
-			<td class="tableau_vue2"> Position y </td>
-			<td class="tableau_vue2"> Date </td>
-		</tr>
-		<tr>
-			<td> </td>
-			<td> </td>
-			<td> </td>
-			<td> </td>
-		</tr>
+		<thead>
+			<tr>
+				<td class="tableau_vue2"> Name </td>
+				<td class="tableau_vue2"> Position x </td>
+				<td class="tableau_vue2"> Position y </td>
+				<td class="tableau_vue2"> Date </td>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($journal as $entree) :?>
+				<tr>
+					<td class="tableau_vue2"> <?= $entree->name ?> </td>
+					<td class="tableau_vue2"> <?= $entree->coordinate_x ?> </td>
+					<td class="tableau_vue2"> <?= $entree->coordinate_y ?> </td>
+					<td class="tableau_vue2"> <?= $entree->date ?> </td>
+				</tr>
+			<?php endforeach ?>
+		</tbody>
 	</table>
 </section>
