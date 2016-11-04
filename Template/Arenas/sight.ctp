@@ -2,7 +2,7 @@
 
 <br/><br/>
 
-<section id="tableau">
+<section class="tableau">
 	<table class="tableau_vue">
 		<tr>
 			<td class="tableau_vue2"> </td>
@@ -26,7 +26,7 @@
 </section>
 
 <section id="bouton_deplacement">
-	<h2>Boutons de deplacement</h2>
+	<h2>Boutons  de  deplacement</h2>
 	<table id="bouton_deplacement2">
 		<tr>
 			<td></td>
@@ -42,7 +42,7 @@
 </section>
 
 <section id="bouton_attaque">
-	<h2>Boutons d'attaque</h2>
+	<h2>Boutons  d' attaque</h2>
 	<table id="bouton_attaque2">
 		<tr>
 			<td></td>

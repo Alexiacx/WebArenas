@@ -10,9 +10,9 @@ foreach($journal as $entree)
 }
 ?> 
 
-<br/><br/>
+<h2><?= __('Journal') ?></h2>
 
-<section id="tableau">
+<section class="tableau">
 	<table class="tableau_vue">
 		<tr>
 			<td class="tableau_vue2"> Name </td>

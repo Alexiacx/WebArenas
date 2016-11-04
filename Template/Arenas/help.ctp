@@ -1,5 +1,6 @@
 <?php $this->assign('title', 'Aide');?>
 
+<br/>
 <fieldset>
     <legend> Les regles du jeu :</legend>
 		<h3>Les règles suivantes seront implémentées : </h3>
