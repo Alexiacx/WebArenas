@@ -1,6 +1,6 @@
 <?php $this->assign('title', 'Combattant');?>
 
-<?php if ($combattant) :?>
+<?php if (isset($combattant)) :?>
   <h3><?= __('Fighters') ?></h3>
     <section id="tableau">
     <table class="tableau_vue"> 
@@ -20,19 +20,19 @@
         </thead>
             <tbody>
                 <tr>
-                    <td class="tableau_vue2"><?= $combattant['0']['name'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['coordinate_x'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['coordinate_y'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['level'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['xp'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['skill_sight'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['skill_strength'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['skill_health'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['current_health'] ?></td>
-                    <td class="tableau_vue2"><?= $combattant['0']['next_action_time'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['name'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['coordinate_x'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['coordinate_y'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['level'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['xp'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['skill_sight'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['skill_strength'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['skill_health'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['current_health'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['next_action_time'] ?></td>
                 </tr>
             </tbody>
-            <?php if ($combattant['0']['xp']>=4) :?>
+            <?php if ($combattant['xp']>=4) :?>
             <h3><?= __('Level Up') ?></h3>
                 <?= $this->Form->create() ?>
                 <?= $this->Form->input('skill_sight', ['type' => 'hidden', 'value' => 1]) ?>
@@ -50,7 +50,7 @@
     </table>
 </section>
 <?php endif ?>
-<?php if (!$combattant) :?>
+<?php if (!isset($combattant)) :?>
     <?= $this->Form->create() ?>
     <fieldset>
         <legend><?= __('Ajout d\'un combattant') ?></legend>

@@ -14,10 +14,6 @@ public function home()
 
 }
 
-public function adduser()
-{
-
-}
 public function fighter()
 {
 	$this->loadModel('Fighters');
@@ -63,9 +59,12 @@ public function fighter()
                 $this->Flash->error(__('The fighter could not be saved. Please, try again.'));
             }
         }
-        $combattant['0']['xp'] = $combattant['0']['xp'] - ($combattant['0']['level']-1)*4;
-		$this->set("combattant", $combattant);
+        if(isset($combattant['0'])) {
+        	$combattant['0']['xp'] = $combattant['0']['xp'] - ($combattant['0']['level']-1)*4;
+			$this->set("combattant", $combattant['0']);
+        }
 }
+
 public function sight()
 {
 
