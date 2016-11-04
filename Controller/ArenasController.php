@@ -69,7 +69,7 @@ public function fighter()
             }
         }
         if(isset($combattant['0'])) {
-        	$combattant['0']['xp'] = $combattant['0']['xp'] - ($combattant['0']['level']-1)*4;
+        	$combattant['0']['xp_levelup'] = $combattant['0']['xp'] - ($combattant['0']['level']-1)*4;
 			$this->set("combattant", $combattant['0']);
         }
 }

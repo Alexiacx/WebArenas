@@ -10,7 +10,8 @@
                 <td class="tableau_vue2"> Position x </td>
                 <td class="tableau_vue2"> Position y </td>
                 <td class="tableau_vue2"> Level </td>
-                <td class="tableau_vue2"> XP </td>
+                <td class="tableau_vue2"> XP total</td>
+                <td class="tableau_vue2"> XP pour level up</td>
                 <td class="tableau_vue2"> Vue </td>
                 <td class="tableau_vue2"> Force </td>
                 <td class="tableau_vue2"> PV Max </td>
@@ -25,6 +26,7 @@
                     <td class="tableau_vue2"><?= $combattant['coordinate_y'] ?></td>
                     <td class="tableau_vue2"><?= $combattant['level'] ?></td>
                     <td class="tableau_vue2"><?= $combattant['xp'] ?></td>
+                    <td class="tableau_vue2"><?= $combattant['xp_levelup'] ?></td>
                     <td class="tableau_vue2"><?= $combattant['skill_sight'] ?></td>
                     <td class="tableau_vue2"><?= $combattant['skill_strength'] ?></td>
                     <td class="tableau_vue2"><?= $combattant['skill_health'] ?></td>
