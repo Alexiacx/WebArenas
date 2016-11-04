@@ -37,11 +37,20 @@ public function fighter()
         	}
         	else {
         		$fighter = $this->Fighters->newEntity();
+        		$i=0;
+        		do {
+        			$x = rand(0,14);
+	        		$y = rand(0,9);
+	        		if ($this->Fighters->positionNotUsed($x, $y)) {
+	        			$i=1;
+	        		}
+        		} while($i = 0);
+
 	            $newFighter = [
 	                'name' => $this->request->data['name'],
 	                'player_id' => $this->Auth->user('id'),
-	                'coordinate_x' => 2,
-	                'coordinate_y' => 2,
+	                'coordinate_x' => $x,
+	                'coordinate_y' => $y,
 	                'level' => 1,
 	                'xp' => 0,
 	                'skill_sight' => 2,

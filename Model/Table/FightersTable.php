@@ -74,6 +74,22 @@ class FightersTable extends Table
         return $combattant->toArray();
     }
 
+    public function positionNotUsed($x, $y) {
+
+        $positionUsed = $this->find('all', ['all',
+            'conditions' => [
+            'Fighters.coordinate_x =' => $x,
+            'Fighters.coordinate_y =' => $y,
+            ]
+        ]);
+
+        if(isset($positionUsed)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /**
      * Default validation rules.
      *

@@ -58,6 +58,6 @@
             echo $this->Form->input('name');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Ajouter')) ?>
     <?= $this->Form->end() ?>
 <?php endif ?>
