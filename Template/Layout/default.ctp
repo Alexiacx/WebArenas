@@ -70,7 +70,8 @@ $cakeDescription = 'Combattant-ECE';
     </div>
         
     <footer>
-        © Gr2-09-CG - Alexia Chassigneux, Romain Tichadou, Perpetua Nesarajah, Matthieu Hannequin - Novembre 2016
+        © Gr2-09-CG - A. Chassigneux, R. Tichadou, P. Nesarajah, M. Hannequin - Novembre 2016 - 
+        <?php echo $this->Html->link('Le site en ligne', 'http://jeutropstyleduprojetwebecegroupe209.fr/webarena/', array('target'=>'_blank', 'class'=>'enligne'));?>
     </footer>
 </body>
 </html>
