@@ -62,6 +62,8 @@ $cakeDescription = 'Combattant-ECE';
         </ul>
     </header>
 
+    <h1>LES COMBATTANTS - E C E</h1>
+
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
