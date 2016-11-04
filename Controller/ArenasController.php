@@ -62,8 +62,6 @@ public function fighter()
         	}
             if ($this->Fighters->save($fighter)) {
                 $this->Flash->success(__('The fighter has been updated.'));
-
-                return $this->redirect(['action' => 'fighter']);
             } else {
                 $this->Flash->error(__('The fighter could not be saved. Please, try again.'));
             }
@@ -76,6 +74,22 @@ public function fighter()
 
 public function sight()
 {
+    $this->loadModel('Fighters');
+    $combattant = $this->Fighters->findByPlayerId($this->Auth->user('id'));
+    $figX = $combattant['0']['coordinate_x'];
+    $figY = $combattant['0']['coordinate_y'];
+    $sight = $combattant['0']['skill_sight'];
+    $width = 15;
+    $height = 10;
+    $ennemyInSight = $this->Fighters->inSight($figX, $figY, $sight);
+    $this->set("ennemies", $ennemyInSight);
+    $this->set("combattant", $combattant['0']);
+
+    // for($i=0 ; $i<$width ; $i++)
+    //     for($j=0 ; $j<$height ; $j++) {
+    //         if ( abs(($i - $figX)+($j-$figY)) <= $sight ) {
+    //         }
+    //     }
 
 }
 public function diary()

@@ -90,6 +90,17 @@ class FightersTable extends Table
         }
     }
 
+    public function inSight($x, $y, $sight) {
+
+        $fightersInSight = $this->find('all', ['all',
+            'conditions' => [
+            'ABS(Fighters.coordinate_x - '.$x.') + ABS(Fighters.coordinate_y - '.$y.') <=' => $sight,
+            'ABS(Fighters.coordinate_x - '.$x.') + ABS(Fighters.coordinate_y - '.$y.') !=' => 0,
+            ]
+        ]);
+        return $fightersInSight->toArray();
+    }
+
     /**
      * Default validation rules.
      *

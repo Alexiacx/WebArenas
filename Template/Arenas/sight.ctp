@@ -9,19 +9,24 @@
 			<td class="tableau_vue2"> Name </td>
 			<td class="tableau_vue2"> Position x </td>
 			<td class="tableau_vue2"> Position y </td>
+			<td class="tableau_vue2"> Distance </td>
 		</tr>
 		<tr>
 			<td class="tableau_vue2"> Combattant </td>
-			<td class="tableau_vue2"></td>
-			<td class="tableau_vue2"></td>
-			<td class="tableau_vue2"></td>
+			<td class="tableau_vue2"><?= $combattant->name ?></td>
+			<td class="tableau_vue2"><?= $combattant->coordinate_x ?></td>
+			<td class="tableau_vue2"><?= $combattant->coordinate_y ?></td>
+			<td class="tableau_vue2">0</td>
 		</tr>
-		<tr>
-			<td class="tableau_vue2"> Ennemi </td>
-			<td class="tableau_vue2"></td>
-			<td class="tableau_vue2"></td>
-			<td class="tableau_vue2"></td>
-		</tr>
+		<?php foreach ($ennemies as $ennemy) :?>
+			<tr>
+				<td class="tableau_vue2"> Ennemi </td>
+				<td class="tableau_vue2"><?= $ennemy->name ?></td>
+				<td class="tableau_vue2"><?= $ennemy->coordinate_x ?></td>
+				<td class="tableau_vue2"><?= $ennemy->coordinate_y ?></td>
+				<td class="tableau_vue2"><?= abs(($ennemy->coordinate_x - $combattant->coordinate_x))+abs(($ennemy->coordinate_y-$combattant->coordinate_y)) ?></td>
+			</tr>
+		<?php endforeach ?>
 	</table>
 </section>
 

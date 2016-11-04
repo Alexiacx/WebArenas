@@ -34,7 +34,7 @@
                     <td class="tableau_vue2"><?= $combattant['next_action_time'] ?></td>
                 </tr>
             </tbody>
-            <?php if ($combattant['xp']>=4) :?>
+            <?php if ($combattant['xp_levelup']>=4) :?>
             <h3><?= __('Level Up') ?></h3>
                 <?= $this->Form->create() ?>
                 <?= $this->Form->input('skill_sight', ['type' => 'hidden', 'value' => 1]) ?>

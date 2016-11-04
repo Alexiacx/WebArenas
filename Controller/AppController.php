@@ -61,7 +61,7 @@ class AppController extends Controller
 
             'loginRedirect' => [
                 'controller' => 'Arenas',
-                'action' => 'fighter'
+                'action' => 'help'
             ],
 
             'logoutRedirect' => [
@@ -70,7 +70,7 @@ class AppController extends Controller
             ],
         ]);
 
-        $this->Auth->allow(['display' , 'add', 'home']);
+        $this->Auth->allow(['display' , 'add', 'home', 'help']);
     }
 
     /**
