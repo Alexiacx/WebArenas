@@ -22,7 +22,7 @@ public function fighter()
 {
 	$this->loadModel('Fighters');
 	$combattant = $this->Fighters->findByPlayerId($this->Auth->user('id'));
-	$this->set("combattant", $combattant);
+	
         if ($this->request->is('post')) {
         	// var_dump($this->request->data); die;
         	if (isset($this->request->data['skill_sight'])) {
@@ -63,6 +63,8 @@ public function fighter()
                 $this->Flash->error(__('The fighter could not be saved. Please, try again.'));
             }
         }
+        $combattant['0']['xp'] = $combattant['0']['xp'] - ($combattant['0']['level']-1)*4;
+		$this->set("combattant", $combattant);
 }
 public function sight()
 {

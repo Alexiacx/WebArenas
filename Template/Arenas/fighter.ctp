@@ -32,7 +32,7 @@
                     <td class="tableau_vue2"><?= $combattant['0']['next_action_time'] ?></td>
                 </tr>
             </tbody>
-            <?php if ((($combattant['0']['xp']/4)-$combattant['0']['level'])>=0) :?>
+            <?php if ($combattant['0']['xp']>=4) :?>
             <h3><?= __('Level Up') ?></h3>
                 <?= $this->Form->create() ?>
                 <?= $this->Form->input('skill_sight', ['type' => 'hidden', 'value' => 1]) ?>
