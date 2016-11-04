@@ -1,7 +1,6 @@
 <?php $this->assign('title', 'Connexion');?>
 
-<h1>LES COMBATTANTS - E C E</h1>
-<h2>Combatter vos amis un enemis grâce à ce jeu!</h2>
+<h2 class="gros_titre">Combattez vos amis et remportez la victoire !</h2>
 
 <?php echo $this->Form->create();?>
 

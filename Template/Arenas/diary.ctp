@@ -1,6 +1,8 @@
 <?php $this->assign('title', 'Journal');?>
 
-<section id="tableau">
+<h2><?= __('Journal') ?></h2>
+
+<section class="tableau">
 	<table class="tableau_vue">
 		<thead>
 			<tr>

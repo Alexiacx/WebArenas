@@ -1,8 +1,8 @@
 <?php $this->assign('title', 'Combattant');?>
 
 <?php if (isset($combattant)) :?>
-  <h3><?= __('Fighters') ?></h3>
-    <section id="tableau">
+  <h2><?= __('Combattant') ?></h2>
+    <section class="tableau2">
     <table class="tableau_vue"> 
         <thead>
             <tr>
