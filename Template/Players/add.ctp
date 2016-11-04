@@ -19,6 +19,15 @@
     <?= $this->Form->end() ?>
 </div>
 
+<fieldset id="login">
+    <legend>
+        <?php echo ('Connecte toi :'); ?>
+    </legend>
+        <?php 
+            echo $this->Html->link('Se connecter', array('controller' => 'Players', 'action'=>'login'), array('class' => 'button'));
+        ?>
+</fieldset>
+
 <fieldset id="explication">
       <legend>Explications du site</legend>
         <h2>1) Votre page Vision :</h2>

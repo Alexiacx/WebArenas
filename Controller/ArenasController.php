@@ -22,7 +22,7 @@ public function fighter()
 {
 	$this->loadModel('Fighters');
 	$combattant = $this->Fighters->findByPlayerId($this->Auth->user('id'));
-	
+
         if ($this->request->is('post')) {
         	// var_dump($this->request->data); die;
         	if (isset($this->request->data['skill_sight'])) {
@@ -56,7 +56,7 @@ public function fighter()
 	            $fighter = $this->Fighters->patchEntity($fighter, $newFighter);
         	}
             if ($this->Fighters->save($fighter)) {
-                $this->Flash->success(__('The fighter has been saved.'));
+                $this->Flash->success(__('The fighter has been updated.'));
 
                 return $this->redirect(['action' => 'fighter']);
             } else {
@@ -75,7 +75,6 @@ public function diary()
 	$this->loadModel('Events');
 	$journal=$this->Events->getDiary();
 	$this->set("journal",$journal);
-	var_dump($journal);
 }
 public function help()
 {

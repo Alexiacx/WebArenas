@@ -10,3 +10,12 @@
             echo $this->Form->end();
         ?>
 </fieldset>
+
+<fieldset id="register">
+    <legend>      
+        <?php echo ('Pas encore inscrit ?'); ?>
+    </legend>
+        <?php 
+            echo $this->Html->link('S\'inscrire', array('controller' => 'Players', 'action'=>'add'), array('class' => 'button'));
+        ?>
+</fieldset>
