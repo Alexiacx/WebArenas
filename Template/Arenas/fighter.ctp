@@ -11,7 +11,7 @@
                 <td class="tableau_vue2"> Position y </td>
                 <td class="tableau_vue2"> Level </td>
                 <td class="tableau_vue2"> XP total</td>
-                <td class="tableau_vue2"> XP pour level up</td>
+                <td class="tableau_vue2"> XP à utiliser pour level up</td>
                 <td class="tableau_vue2"> Vue </td>
                 <td class="tableau_vue2"> Force </td>
                 <td class="tableau_vue2"> PV Max </td>

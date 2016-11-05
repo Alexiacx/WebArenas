@@ -101,21 +101,11 @@ class FightersTable extends Table
         return $fightersInSight->toArray();
     }
 
-    public function getPA($fid)
-    {
-        $combattant = $this->find('all', ['all',
-            'conditions' => [
-            'Fighters.id =' => $fid,
-            ]
-        ]);
-        return $combattant->toArray();
-    }
-
-    public function doMove($direction, $combattant)
+    public function doMove($direction, $combattant, $width, $height)
     {
         switch ($direction) {
             case 'up' :
-                if ($combattant['coordinate_y']+1 > 9) {
+                if ($combattant['coordinate_y']+1 > $height) {
                     return 0;
                 }
                 $potEnnemy = $this->find('all', ['all',
@@ -163,7 +153,7 @@ class FightersTable extends Table
                 }
                 break;
             case 'right' :
-                if ($combattant['coordinate_x']+1 > 14) {
+                if ($combattant['coordinate_x']+1 > $width) {
                     return 0;
                 }
                 $potEnnemy = $this->find('all', ['all',
@@ -181,12 +171,12 @@ class FightersTable extends Table
         }
     }
 
-    public function doAttack($direction, $combattant)
+    public function doAttack($direction, $combattant, $width, $height)
     {
         $d20 = rand(1,20);
         switch ($direction) {
             case 'up' :
-                if ($combattant['coordinate_y']+1 > 9) {
+                if ($combattant['coordinate_y']+1 > $height) {
                     return 0;
                 }
                 $potEnnemy = $this->find('all', ['all',
@@ -246,7 +236,7 @@ class FightersTable extends Table
                 } else return 0;
                 break;
             case 'right' :
-                if ($combattant['coordinate_x']+1 > 14) {
+                if ($combattant['coordinate_x']+1 > $width) {
                     return 0;
                 }
                 $potEnnemy = $this->find('all', ['all',

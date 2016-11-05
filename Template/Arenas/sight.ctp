@@ -3,6 +3,13 @@
 <br/><br/>
 
 <section class="tableau">
+
+	<?php if((time()-$combattant['next_action_time']->toUnixString())/$PA['tpsRecupPA'] >5) :?>
+		<label>PA : <?= $PA['maxPA'] ?></label>
+	<?php else :?>
+		<label>PA : <?= (time()-$combattant['next_action_time']->toUnixString())/$PA['tpsRecupPA']%60 ?></label>
+	<?php endif ?>
+
 	<table class="tableau_vue">
 		<tr>
 			<td class="tableau_vue2"> </td>
