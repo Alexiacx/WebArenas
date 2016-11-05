@@ -66,6 +66,16 @@ class PlayersTable extends Table
         return $validator;
     }
 
+    public function checkUser($email)
+    {
+        $user = $this->find('all', ['all',
+            'conditions' => [
+            'Players.email =' => $email,
+            ]
+        ]);
+        return $user->toArray();
+    }
+
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.

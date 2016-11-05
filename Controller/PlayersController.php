@@ -5,9 +5,7 @@ use App\Controller\AppController;
 use Cake\Event\Event; 
 use Cake\Network\Exception;
 use Cake\Utility\Text;
-use Cake\Filesystem\Folder;
-use Cake\Filesystem\File;
-
+use Cake\Mailer\Email;
 
 /**
  * Players Controller
@@ -39,7 +37,7 @@ class PlayersController extends AppController
 
     public function gitlog()
     {
-        
+
     }
 
         /**
@@ -76,6 +74,44 @@ class PlayersController extends AppController
         }
     }
 
+        /**
+     * reset password method
+     *
+     */
+    public function resetpw()
+    {
+        $length = 20;
+        $this->loadModel('Players');
+        
+
+        if ($this->request->is('post')) {
+            $user = $this->Players->checkUser($this->request->data['email']);
+            if($user) {
+                $specialchars = array('&', '~', '"', '\'', '(', '{', '[', '|', ']', '}', ')', '=', '-', '+', '*', '/', '\\', '_', '@', '%', '$', '!', ';', '.', ',', ':', '?', '§', '°', '€', '£', '¤', 'µ', '#', '<', '>');
+                $chars = array_merge(range('a', 'z'), range('A', 'Z'), range('0', '9'), $specialchars);
+                shuffle($chars);
+                $newPw = substr(implode($chars), 0, $length);
+
+                $playerReset = $this->Players->patchEntity($user['0'], ['password' => $newPw]);
+                if ($this->Players->save($playerReset)) {
+
+                    //Envoi de l'email
+                    $email = new Email('default');
+                    $email->from('mpingkachu@gmail.com')
+                        ->to($this->request->data['email'])
+                        ->subject('Reset password')
+                        ->send('Voici votre nouveau mot de passe : '.$newPw);
+
+                    $this->Flash->success(__('Un email vous a été envoyé pour récupérer votre nouveau mot de passe.'));
+                    return $this->redirect(['controller' => 'Arenas', 'action' => 'home']);
+                } else {
+                    $this->Flash->error(__('Une erreur s\'est produite, veuillez réessayer'));
+                }
+            } else {
+                $this->Flash->error(__('Cette adresse mail n\'existe pas en base'));
+            }
+        }
+    }
 
     public function beforeFilter (Event $event) {
             parent::beforeFilter($event);

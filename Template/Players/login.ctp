@@ -14,6 +14,10 @@
             echo $this->Form->button('Se connecter', ['class' => 'btn validateform']);
             echo $this->Form->end();
         ?>
+    <legend>      
+        <?php echo ('Oublie de ton mdp ?'); ?>
+    </legend>
+        <?= $this->Html->link('Reset password', array('controller' => 'Players', 'action'=>'resetpw'), array('class' => 'button')) ?>
 </fieldset>
 
 <fieldset id="register">
