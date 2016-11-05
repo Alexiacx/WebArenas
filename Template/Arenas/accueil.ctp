@@ -16,23 +16,29 @@
 				<li>Chaque action provoque la création d'un événement avec une description claire. Par exemple : « jonh attaque bill et le touche ».</li>
     
     	<h4>Ce site web est réalisé dans le cadre d'un projet web au cours d'une formation d'ingénieur en apprentissage à l'ECE Paris.</h4>
-    	<p>Connection et inscription en bas de page.</p>
+        <?php if(!isset($userIn)) :?>
+    	   <p>Connection et inscription en bas de page.</p>
+        <?php endif ?>
 </fieldset> 
 
-<fieldset id="login">
-    <legend>
-        <?php echo ('Connecte toi :'); ?>
-    </legend>
-        <?php 
-            echo $this->Html->link('Se connecter', array('controller' => 'Players', 'action'=>'login'), array('class' => 'button'));
-        ?>
-</fieldset>
+<?php if(!isset($userIn)) :?>
 
-<fieldset id="register">
-    <legend>      
-        <?php echo ('Pas encore inscrit ?'); ?>
-    </legend>
-        <?php 
-            echo $this->Html->link('S\'inscrire', array('controller' => 'Players', 'action'=>'add'), array('class' => 'button'));
-        ?>
-</fieldset>
+    <fieldset id="login">
+        <legend>
+            <?php echo ('Connecte toi :'); ?>
+        </legend>
+            <?php 
+                echo $this->Html->link('Se connecter', array('controller' => 'Players', 'action'=>'login'), array('class' => 'button'));
+            ?>
+    </fieldset>
+
+    <fieldset id="register">
+        <legend>      
+            <?php echo ('Pas encore inscrit ?'); ?>
+        </legend>
+            <?php 
+                echo $this->Html->link('S\'inscrire', array('controller' => 'Players', 'action'=>'add'), array('class' => 'button'));
+            ?>
+    </fieldset>
+    
+<?php endif ?>

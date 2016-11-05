@@ -1,10 +1,12 @@
 <h3>Le git log se trouve dans le dossier logs, sous le nom de vf.log</h3>
+	<?php if(!isset($userIn)) :?>
         <?php 
             echo $this->Html->link('Se connecter', array('controller' => 'Players', 'action'=>'login'), array('type' => 'button'));
         ?>
         <?php 
             echo $this->Html->link('S\'inscrire', array('controller' => 'Players', 'action'=>'add'), array('type' => 'button'));
         ?>
+    <?php endif ?>
 <section class="tableau">
 	<h3>Position. Lors de la création d’un fighter, il ne peut pas être au meme endroit
     qu’un autre</h3>
