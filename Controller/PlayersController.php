@@ -104,6 +104,7 @@ class PlayersController extends AppController
                               ->send('Voici votre nouveau mot de passe : '.$newPw);
                     } catch (Exception $e) {
                         echo 'Exception : ',  $e->getMessage(), "\n";
+                        return $this->redirect(['controller' => 'Arenas', 'action' => 'home']);
                     }
 
                     $this->Flash->success(__('Un email vous a été envoyé pour récupérer votre nouveau mot de passe.'));
