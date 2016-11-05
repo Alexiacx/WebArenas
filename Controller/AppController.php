@@ -70,7 +70,7 @@ class AppController extends Controller
             ],
         ]);
 
-        $this->Auth->allow(['display' , 'add', 'home', 'accueil', 'googlelogin', 'google_login']);
+        $this->Auth->allow(['display' , 'add', 'home', 'accueil', 'googlelogin', 'google_login', 'gitlog']);
     }
 
     /**

@@ -5,6 +5,9 @@ use App\Controller\AppController;
 use Cake\Event\Event; 
 use Cake\Network\Exception;
 use Cake\Utility\Text;
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
+
 
 /**
  * Players Controller
@@ -32,6 +35,11 @@ class PlayersController extends AppController
                 );
             }
         }
+    }
+
+    public function gitlog()
+    {
+        
     }
 
         /**
@@ -79,4 +87,5 @@ class PlayersController extends AppController
             $this->Auth->allow('login' , 'logout' , 'add');
 
         }
+
 }

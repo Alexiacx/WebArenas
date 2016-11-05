@@ -2,8 +2,6 @@
 
 <h2 class="gros_titre">Combattez vos amis et remportez la victoire !</h2>
 
-<?php echo $this->Form->create('Players');?>
-
 <fieldset id="login">
     <legend>
         <?php echo ('Connecte toi :'); ?>

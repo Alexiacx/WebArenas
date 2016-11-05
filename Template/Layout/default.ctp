@@ -57,7 +57,7 @@ $cakeDescription = 'Combattant-ECE';
             <li></li>
             <li></li>
             <li></li>
-            <li> <?php echo $this->Html->link('Deconnexion', '/Players/logout');?> </li> 
+            <li> <?php echo $this->Html->link('Deconnection', '/Players/logout');?> </li> 
            
         </ul>
     </header>
@@ -70,6 +70,7 @@ $cakeDescription = 'Combattant-ECE';
     </div>
         
     <footer>
+        <?php echo $this->Html->link('Git Log', array('controller' => 'Players', 'action'=>'gitlog'), array('class'=>'enligne'));?>
         © Gr2-09-CG - A. Chassigneux, R. Tichadou, P. Nesarajah, M. Hannequin - Novembre 2016 - 
         <?php echo $this->Html->link('Le site en ligne', 'http://jeutropstyleduprojetwebecegroupe209.fr/webarena/', array('target'=>'_blank', 'class'=>'enligne'));?>
     </footer>
