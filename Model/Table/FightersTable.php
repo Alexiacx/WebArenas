@@ -43,15 +43,6 @@ class FightersTable extends Table
             'foreignKey' => 'player_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Guilds', [
-            'foreignKey' => 'guild_id'
-        ]);
-        $this->hasMany('Messages', [
-            'foreignKey' => 'fighter_id'
-        ]);
-        $this->hasMany('Tools', [
-            'foreignKey' => 'fighter_id'
-        ]);
     }
 
     public function findById($fid)
@@ -331,7 +322,6 @@ class FightersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['player_id'], 'Players'));
-        $rules->add($rules->existsIn(['guild_id'], 'Guilds'));
 
         return $rules;
     }

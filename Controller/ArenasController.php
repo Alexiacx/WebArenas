@@ -70,15 +70,17 @@ class ArenasController  extends AppController
                 if ($this->Fighters->save($fighter)) {
                     $this->Flash->success(__('The fighter has been updated.'));
 
-                    //Ajout de l'évènement
-                    $this->loadModel('Events');
-                    $event = $this->Events->newEntity();
-                    $data = ['name' => $newFighter['name'].' vient d\'entrer dans l\'arène', 'coordinate_x' => $x, 'coordinate_y' => $y, 'date' => date("Y-m-d H:i:s", time())];
-                    $event = $this->Events->patchEntity($event, $data);
-                    if ($this->Events->save($event)) {
-                        $this->Flash->success(__('Evènement enregistré dans le journal'));
-                    } else {
-                        $this->Flash->error(__('L\'évènement n\'a pas pu être enregistré dans le journal'));
+                    if(isset($newFighter)) {
+                        //Ajout de l'évènement
+                        $this->loadModel('Events');
+                        $event = $this->Events->newEntity();
+                        $data = ['name' => $newFighter['name'].' vient d\'entrer dans l\'arène', 'coordinate_x' => $x, 'coordinate_y' => $y, 'date' => date("Y-m-d H:i:s", time())];
+                        $event = $this->Events->patchEntity($event, $data);
+                        if ($this->Events->save($event)) {
+                            $this->Flash->success(__('Evènement enregistré dans le journal'));
+                        } else {
+                            $this->Flash->error(__('L\'évènement n\'a pas pu être enregistré dans le journal'));
+                        }
                     }
 
                 } else {

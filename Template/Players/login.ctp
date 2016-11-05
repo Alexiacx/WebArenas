@@ -16,9 +16,6 @@
         ?>
 </fieldset>
 
-<a class="btn btn-block google btn-danger" href="<?= $this->Url->build(['action' => 'googlelogin']); ?>"> <i
-                class="fa fa-google-plus modal-icons"></i> Se connecter avec Google+ </a
-
 <fieldset id="register">
     <legend>      
         <?php echo ('Pas encore inscrit ?'); ?>

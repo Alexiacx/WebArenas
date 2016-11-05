@@ -36,7 +36,7 @@ class Player extends Entity
      * @var array
      */
     protected $_hidden = [
-        'password'
+        'password',
     ];
 
     
