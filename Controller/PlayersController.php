@@ -6,7 +6,6 @@ use Cake\Event\Event;
 use Cake\Network\Exception;
 use Cake\Utility\Text;
 use Cake\Mailer\Email;
-
 /**
  * Players Controller
  *
@@ -96,11 +95,16 @@ class PlayersController extends AppController
                 if ($this->Players->save($playerReset)) {
 
                     //Envoi de l'email
-                    $email = new Email('default');
-                    $email->from('mpingkachu@gmail.com')
-                        ->to($this->request->data['email'])
-                        ->subject('Reset password')
-                        ->send('Voici votre nouveau mot de passe : '.$newPw);
+                    $email = new Email();
+                    $email->transport('mailjet');
+                    try {
+                        $res = $email->from(['mpingkachu@gmail.com' => "webArena"])
+                              ->to([$this->request->data['email'] => $user['0']['id']])
+                              ->subject('Reset password')                   
+                              ->send('Voici votre nouveau mot de passe : '.$newPw);
+                    } catch (Exception $e) {
+                        echo 'Exception : ',  $e->getMessage(), "\n";
+                    }
 
                     $this->Flash->success(__('Un email vous a été envoyé pour récupérer votre nouveau mot de passe.'));
                     return $this->redirect(['controller' => 'Arenas', 'action' => 'home']);
