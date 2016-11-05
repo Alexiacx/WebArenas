@@ -1,4 +1,4 @@
-<h3>Le git log se trouve dans le dossier logs, sous le nom de vf.log</h3>
+<h3>Le git log se trouve dans le dossier src, sous le nom de "lastVersion"</h3>
 	<?php if(!isset($userIn)) :?>
         <?php 
             echo $this->Html->link('Se connecter', array('controller' => 'Players', 'action'=>'login'), array('type' => 'button'));
