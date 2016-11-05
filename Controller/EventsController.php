@@ -46,21 +46,17 @@ class EventsController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($message, $x, $y, $url)
     {
         $event = $this->Events->newEntity();
-        if ($this->request->is('post')) {
-            $event = $this->Events->patchEntity($event, $this->request->data);
-            if ($this->Events->save($event)) {
-                $this->Flash->success(__('The event has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The event could not be saved. Please, try again.'));
-            }
+        $data = ['name' => $message, 'coordinate_x' => $x, 'coordinate_y' => $y, 'date' => date("Y-m-d H:i:s", time())]
+        $event = $this->Events->patchEntity($event, $data);
+        if ($this->Events->save($event)) {
+            $this->Flash->success(__('Evènement enregistré dans le journal'));
+        } else {
+            $this->Flash->error(__('L\'évènement n\'a pas pu être enregistré dans le journal'));
         }
-        $this->set(compact('event'));
-        $this->set('_serialize', ['event']);
+        $this->redirect($url);
     }
 
     /**

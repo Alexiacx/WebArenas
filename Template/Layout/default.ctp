@@ -36,7 +36,7 @@ $cakeDescription = 'Combattant-ECE';
 <body>
     <header>
         <ul> 
-            <li> <?php echo $this->Html->link('Accueil', '/Arenas/help');?> </li> 
+            <li> <?php echo $this->Html->link('Accueil', '/Arenas/accueil');?> </li> 
             <li> <?php echo $this->Html->link('Le journal', '/Arenas/diary');?> </li> 
             <li> <?php echo $this->Html->link('Vision', '/Arenas/sight');?> </li> 
             <li> <?php echo $this->Html->link('Mon combattant', '/Arenas/fighter'); ?> </li> 

@@ -69,6 +69,18 @@ class ArenasController  extends AppController
             	}
                 if ($this->Fighters->save($fighter)) {
                     $this->Flash->success(__('The fighter has been updated.'));
+
+                    //Ajout de l'évènement
+                    $this->loadModel('Events');
+                    $event = $this->Events->newEntity();
+                    $data = ['name' => $newFighter['name'].' vient d\'entrer dans l\'arène', 'coordinate_x' => $x, 'coordinate_y' => $y, 'date' => date("Y-m-d H:i:s", time())];
+                    $event = $this->Events->patchEntity($event, $data);
+                    if ($this->Events->save($event)) {
+                        $this->Flash->success(__('Evènement enregistré dans le journal'));
+                    } else {
+                        $this->Flash->error(__('L\'évènement n\'a pas pu être enregistré dans le journal'));
+                    }
+
                 } else {
                     $this->Flash->error(__('The fighter could not be saved. Please, try again.'));
                 }
@@ -84,8 +96,7 @@ class ArenasController  extends AppController
         //On charge nos modèles
         $this->loadModel('Fighters');
         $combattant = $this->Fighters->findByPlayerId($this->Auth->user('id'));
-        $this->loadModel('Events');
-
+        
         //On déclare nos variables
         $maxPA = 5;
         $tpsRecupPA = 60;
@@ -160,11 +171,35 @@ class ArenasController  extends AppController
                         if($healthDown['current_health'] <= 0) {
                             if ($this->Fighters->save($attacking) && $this->Fighters->delete($attacked)) {
                                 $this->Flash->success(__('Vous avez tué un ennemi ! Bonus xp !'));
+
+                                //Ajout de l'évènement
+                                $this->loadModel('Events');
+                                $event = $this->Events->newEntity();
+                                $data = ['name' => $combattant['0']['name'].' vient de tuer '.$ennemy['name'], 'coordinate_x' => $ennemy['coordinate_x'], 'coordinate_y' => $ennemy['coordinate_y'], 'date' => date("Y-m-d H:i:s", time())];
+                                $event = $this->Events->patchEntity($event, $data);
+                                if ($this->Events->save($event)) {
+                                    $this->Flash->success(__('Evènement enregistré dans le journal'));
+                                } else {
+                                    $this->Flash->error(__('L\'évènement n\'a pas pu être enregistré dans le journal'));
+                                }
+
                             } else {
                                 $this->Flash->error(__('Votre attaque n\'a pas pu se faire (Erreur sql)'));
                             }
                         } elseif ($this->Fighters->save($attacking) && $this->Fighters->save($attacked)) {
                             $this->Flash->success(__('Attaque réussie'));
+
+                            //Ajout de l'évènement
+                            $this->loadModel('Events');
+                            $event = $this->Events->newEntity();
+                            $data = ['name' => $combattant['0']['name'].' vient d\'attaquer '.$ennemy['name'], 'coordinate_x' => $ennemy['coordinate_x'], 'coordinate_y' => $ennemy['coordinate_y'], 'date' => date("Y-m-d H:i:s", time())];
+                            $event = $this->Events->patchEntity($event, $data);
+                            if ($this->Events->save($event)) {
+                                $this->Flash->success(__('Evènement enregistré dans le journal'));
+                            } else {
+                                $this->Flash->error(__('L\'évènement n\'a pas pu être enregistré dans le journal'));
+                            } 
+
                         } else {
                             $this->Flash->error(__('Votre attaque n\'a pas pu se faire (Erreur sql)'));
                         }
@@ -192,7 +227,8 @@ class ArenasController  extends AppController
     	$journal=$this->Events->getDiary();
     	$this->set("journal",$journal);
     }
-    public function help()
+
+    public function accueil()
     {
 
     }

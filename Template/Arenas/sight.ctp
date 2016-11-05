@@ -47,7 +47,7 @@
 			<td></td>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'up']) ?>
-                <?= $this->Form->button(__('Haut')) ?>
+                <?= $this->Form->button(__('Haut +1y')) ?>
                 <?= $this->Form->end() ?>
             </td>
 		    <td></td>
@@ -55,17 +55,17 @@
 		<tr>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'left']) ?>
-                <?= $this->Form->button(__('Gauche')) ?>
+                <?= $this->Form->button(__('Gauche -1x')) ?>
                 <?= $this->Form->end() ?>
             </td>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'down']) ?>
-                <?= $this->Form->button(__('Bas')) ?>
+                <?= $this->Form->button(__('Bas -1y')) ?>
                 <?= $this->Form->end() ?>
             </td>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('move', ['type' => 'hidden', 'value' => 'right']) ?>
-                <?= $this->Form->button(__('Droite')) ?>
+                <?= $this->Form->button(__('Droite +1x')) ?>
                 <?= $this->Form->end() ?>
             </td>
 		</tr>
@@ -79,7 +79,7 @@
 			<td></td>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'up']) ?>
-                <?= $this->Form->button(__('Haut')) ?>
+                <?= $this->Form->button(__('Haut +1y')) ?>
                 <?= $this->Form->end() ?>
             </td>
 		    <td></td>
@@ -87,17 +87,17 @@
 		<tr>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'left']) ?>
-                <?= $this->Form->button(__('Gauche')) ?>
+                <?= $this->Form->button(__('Gauche -1x')) ?>
                 <?= $this->Form->end() ?>
             </td>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'down']) ?>
-                <?= $this->Form->button(__('Bas')) ?>
+                <?= $this->Form->button(__('Bas -1y')) ?>
                 <?= $this->Form->end() ?>
             </td>
 			<td><?= $this->Form->create() ?>
                 <?= $this->Form->input('attack', ['type' => 'hidden', 'value' => 'right']) ?>
-                <?= $this->Form->button(__('Droite')) ?>
+                <?= $this->Form->button(__('Droite +1x')) ?>
                 <?= $this->Form->end() ?>
             </td>
 		</tr>
